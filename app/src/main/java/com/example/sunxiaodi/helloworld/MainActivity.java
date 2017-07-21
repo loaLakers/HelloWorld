@@ -10,8 +10,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import org.jdom2.Document;
-
 public class MainActivity extends Activity {
 
     private ImageView iv;
@@ -20,8 +18,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Document doc = new Document();
 
         Button ok = (Button) findViewById(R.id.button);
         iv = (ImageView) findViewById(R.id.imageView);
