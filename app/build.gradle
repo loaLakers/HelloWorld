@@ -25,10 +25,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.release
             applicationVariants.all { variant ->
-                if (variant.buildType.name.equals('release')) {
-                    variant.outputs.each { output -> def outputFile = output.outputFile
+                if (variant.buildType.name == 'release') {
+                    variant.outputs.each { output ->
+                        def outputFile = output.outputFile
                         if (outputFile != null && outputFile.name.endsWith('.apk')) {
-                            def fileName = "${releaseTime()}_com.andli.myproject_${defaultConfig.versionName}.apk"
+                            def fileName = "${releaseTime()}_com.wzh_helloworld_${defaultConfig.versionName}.apk"
                             output.outputFile = new File(outputFile.parent, fileName)
                         }
                     }
@@ -47,5 +48,5 @@ dependencies {
 }
 
 def releaseTime() {
-    return new Date().format("yyyyMMdd HH:mm:ss", TimeZone.getTimeZone("Asia/Chongqing"))
+    return new Date().format("yyyy-MM-dd-HH:mm:ss", TimeZone.getTimeZone("Asia/Chongqing"))
 }
